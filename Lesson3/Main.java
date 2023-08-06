@@ -2,10 +2,6 @@ package lesson3;
 // Напишите приложение, которое будет запрашивать у пользователя следующие данные в произвольном порядке, 
 // разделенные пробелом:
 // Фамилия Имя Отчество датарождения номертелефона пол
-
-import java.util.Scanner;
-
-
 // Форматы данных:
 // фамилия, имя, отчество - строки
 // датарождения - строка формата dd.mm.yyyy
@@ -25,8 +21,18 @@ import java.util.Scanner;
 //  в него в одну строку должны записаться полученные данные, вида
 public class Main {
     public static void main(String[] args) {
-        String stroka;
+        String  stroka;
         Utility.info();
+        stroka=Utility.inputStroka() ;
+        System.out.println("Вы ввели свои данные\n"+stroka+"\nсейчас проверим");
+        String[] data = new String[]{}; // по условию задачи
+        data = stroka.split(" ");
+        System.out.println();
+        for (String string : data) {
+            System.out.println(string);
+            
+        }
+
         
          
     }
