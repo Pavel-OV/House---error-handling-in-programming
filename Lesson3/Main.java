@@ -1,5 +1,6 @@
 package lesson3;
 // Напишите приложение, которое будет запрашивать у пользователя следующие данные в произвольном порядке, 
+
 // разделенные пробелом:
 // Фамилия Имя Отчество датарождения номертелефона пол
 // Форматы данных:
@@ -7,6 +8,8 @@ package lesson3;
 // датарождения - строка формата dd.mm.yyyy
 // номертелефона - целое беззнаковое число без форматирования
 // пол - символ латиницей f или m.
+
+import java.io.IOException;
 
 // Приложение должно проверить введенные данные по количеству.
 //  Если количество не совпадает с требуемым, вернуть код ошибки, обработать его и показать пользователю сообщение,
@@ -21,20 +24,16 @@ package lesson3;
 //  в него в одну строку должны записаться полученные данные, вида
 public class Main {
     public static void main(String[] args) {
-        String  stroka;
-        Utility.info();
-        stroka=Utility.inputStroka() ;
-        System.out.println("Вы ввели свои данные\n"+stroka+"\nсейчас проверим");
-        String[] data = new String[]{}; // по условию задачи
-        data = stroka.split(" ");
-        System.out.println();
-        for (String string : data) {
-            System.out.println(string);
-            
-        }
+        try {
+            Utility.start();
+            System.out.println("Успешно");
+        // } catch (ArrayStoreException e) {
+        //     System.out.println(e.getMassage());
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
 
-        
-         
+        };
+
     }
-    
+
 }
