@@ -27,6 +27,7 @@ class Verification  {
             CheckError.parseStr(data[0]);
             CheckError.parseStr(data[1]);
             CheckError.parseStr(data[2]);
+            CheckError.checkBirthdayChar(data[3]);
         // String lastName = data[0];
         // CheckError.parseStr(lastName);
     
