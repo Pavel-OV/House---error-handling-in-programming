@@ -2,6 +2,8 @@ package lesson3;
 
 //import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.lang.NumberFormatException;
+import java.lang.Exception;
 
 public class CheckError {
     private static Pattern p = Pattern.compile("\\d");
@@ -46,9 +48,12 @@ public class CheckError {
    
      public static void checkGenderChar(String data){
         char[] charString = data.toCharArray();
-         if(charString.length !=1){
+         if(charString.length !=1 ){
             System.out.println("В графе пол должна быть одна буква");
             Utility.start();
+        if(charString.equals("m") ||  charString.equals("f")){
+             
+        }
 
     }
    
