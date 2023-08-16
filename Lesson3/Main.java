@@ -27,6 +27,7 @@ public class Main {
         try {
             Utility.start();
             System.out.println("Успешно");
+            System.out.println();
         // } catch (ArrayStoreException e) {
         //     System.out.println(e.getMassage());
         } catch (NumberFormatException e) {
