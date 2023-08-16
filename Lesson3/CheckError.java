@@ -1,62 +1,57 @@
 package lesson3;
 
-//import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 import java.lang.NumberFormatException;
-import java.lang.Exception;
 
 public class CheckError {
-    private static Pattern p = Pattern.compile("\\d");
-    //private static Matcher matcher = p.matcher
+     
 
-    public static void parseStr(String data){
-         char[] charString = data.toCharArray();
-         boolean isDigit = false;
+    public static String parseStr(String data) {
+        String stoka = data.replaceAll("[^A-Za-zА-Яа-я]", "");
+        if (!stoka.equals(data)) {
+            System.out.println("\nОшибка: в ФИО присуствует цифра либо какой-то знак \t" + data);
+            System.out.println("\nИсправте данные ФИО: " + data);
 
-        for (char c : charString) {
-            if(Character.isDigit(c)){
-                isDigit=true;
-                System.out.println( "В ФИО присуствует цифра");
-                Utility.start();        
-                             
-            }                
+            data = parseStr(Utility.inputStroka());
+
         }
-        
-        
-    }
-
-     public static void checkBirthdayChar(String data){
-        char[] charString = data.toCharArray();
-        
-    }
-    public static void checkIntChar(String phone) throws NumberFormatException{
-        char[] numberChar = phone.toCharArray();
-        if(numberChar.length !=10){
-            System.out.println("Вы неправильно набрали колличество цифр в номере телефона");
-            Utility.start();
-            
-        }
-        try{
-            long number = Long.parseLong(phone);
-        } catch (NumberFormatException e) {
-            System.out.println("В номере телефона присуствует буква(ы)");
-            Utility.start();
-            
-            }
-        
-    }
-   
-     public static void checkGenderChar(String data){
-        char[] charString = data.toCharArray();
-         if(charString.length !=1 ){
-            System.out.println("В графе пол должна быть одна буква");
-            Utility.start();
-        if(charString.equals("m") ||  charString.equals("f")){
-             
-        }
+        return data;
 
     }
-   
-}
-    
+
+    public static String checkBirthdayChar(String data) {
+        if (data.matches("^\\d{2}\\.\\d{2}\\.\\d{4}")) {
+
+        } else {
+            System.out.println("\nНе правильно набрана дата рождения. \nПроверте введённые данные:  \t" + data + "\n");
+            data = checkBirthdayChar(Utility.inputStroka());
+
+        }
+        return data;
+
+    }
+
+    public static String checkIntChar(String phone) throws NumberFormatException {
+        if (phone.matches("^\\d{10}")) {
+
+        } else {
+            System.out.println("\nНе правильно набран номер телефона. \nПроверте введённые данные:  \t" + phone + "\n");
+            phone = checkIntChar(Utility.inputStroka());
+        }
+        return phone;
+
+    }
+
+    public static String checkGenderChar(String gender) {
+        if (gender.matches("[fmFM{1}]")) {
+
+        } else {
+            System.out.println("\nНе правильно набран пол человека. \nПроверте введённые данные:  \t" + gender);
+            System.out.println("Пол набирается латиницей m или f \n");
+            gender = checkGenderChar(Utility.inputStroka());
+
+        }
+        return gender;
+
+    }
 }
