@@ -1,6 +1,5 @@
 package lesson3;
 // Напишите приложение, которое будет запрашивать у пользователя следующие данные в произвольном порядке, 
-
 // разделенные пробелом:
 // Фамилия Имя Отчество датарождения номертелефона пол
 // Форматы данных:
@@ -23,15 +22,15 @@ import java.io.IOException;
 // Если всё введено и обработано верно, должен создаться файл с названием, равным фамилии,
 //  в него в одну строку должны записаться полученные данные, вида
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+           
         try {
-            Utility.start();
-            System.out.println("Успешно");
-            System.out.println();
-        // } catch (ArrayStoreException e) {
-        //     System.out.println(e.getMassage());
+        Utility.start();
+        System.out.println("Успешно");
+        System.out.println();
+       
         } catch (NumberFormatException e) {
-            System.out.println(e.getMessage());
+        System.out.println(e.getMessage());
 
         };
 

@@ -1,5 +1,7 @@
 package lesson3;
 
+import java.io.IOException;
+
 class Verification  {
 
     static String[] shablon() {
@@ -7,14 +9,16 @@ class Verification  {
         return shablon;
     }
 
-    public static String[] proverka(String[] data) {
+    public static String[] proverka(String[] data) throws IOException {
         String[] shablon = shablon();
         if (data.length > shablon.length) {
             System.out.println("Проверте себя, введено больше чем положено");
+            System.out.println("Нужно "+shablon.length+" \tВы набрали "+data.length);
             Utility.start();
         }
         if (data.length < shablon.length) {
              System.out.println( "Проверте себя, введено меньше чем положено ");
+              System.out.println("Нужно "+shablon.length+" \tВы набрали "+data.length);
             Utility.start();
            
         }

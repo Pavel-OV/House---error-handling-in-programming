@@ -3,6 +3,9 @@ package lesson3;
 
 import java.lang.NumberFormatException;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class CheckError {
      
 
@@ -20,14 +23,17 @@ public class CheckError {
     }
 
     public static String checkBirthdayChar(String data) {
-        if (data.matches("^\\d{2}\\.\\d{2}\\.\\d{4}")) {
-
-        } else {
-            System.out.println("\nНе правильно набрана дата рождения. \nПроверте введённые данные:  \t" + data + "\n");
+        DateTimeFormatter forma = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate date;
+        try{
+            date = LocalDate.parse(data,forma);
+        }catch(Exception e){
+            System.out.println("Ошибка: не правильно набрали формат даты либо цифры "+data);
             data = checkBirthdayChar(Utility.inputStroka());
-
+            
         }
-        return data;
+        
+       return data;
 
     }
 

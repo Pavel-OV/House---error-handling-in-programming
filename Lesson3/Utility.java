@@ -1,10 +1,11 @@
 package lesson3;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class Utility{
-    public static void start(){
+    public static void start() throws IOException{
         String  stroka=" ";
         String[] data = new String[6];
         info();
@@ -14,10 +15,8 @@ public class Utility{
         data = stroka.split(" ");
        
         Verification.proverka(data);
-             for (String string : data) {
-            System.out.println(string);
+        SaveFile.createFile(data);
             
-        }
     }
 
      static void   info(){
@@ -26,7 +25,7 @@ public class Utility{
     }
     public static  String inputStroka(){
 
-        Scanner sc = new Scanner (System.in);
+        Scanner sc = new Scanner (System.in,  "Cp866");
         System.out.println("Введите данные");
         String stroka = sc.nextLine();
        
